@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C8E2E76B-5263-4CCA-8391-ED3421CB8231}</ProjectGuid>
+    <RootNamespace>WinCommonBase</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\..\bin\$(Configuration)\</OutDir>
+    <IntDir>..\..\builds\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\..\bin\$(Configuration)\</OutDir>
+    <IntDir>..\..\builds\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>../../include/common_base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;WIN_COMMON_STATIC_LIBS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <ExceptionHandling>Async</ExceptionHandling>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>../../include/common_base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;WIN_COMMON_STATIC_LIBS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Async</ExceptionHandling>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\common_base\auto_lock.cpp" />
+    <ClCompile Include="..\..\src\common_base\bitmap_to_icon.cpp" />
+    <ClCompile Include="..\..\src\common_base\color_converter.cpp" />
+    <ClCompile Include="..\..\src\common_base\console.cpp" />
+    <ClCompile Include="..\..\src\common_base\crash_dump.cpp" />
+    <ClCompile Include="..\..\src\common_base\delegate.cpp" />
+    <ClCompile Include="..\..\src\common_base\file_helper.cpp" />
+    <ClCompile Include="..\..\src\common_base\file_mapping.cpp" />
+    <ClCompile Include="..\..\src\common_base\identity_master.cpp" />
+    <ClCompile Include="..\..\src\common_base\lock_critical_section.cpp" />
+    <ClCompile Include="..\..\src\common_base\lock_event.cpp" />
+    <ClCompile Include="..\..\src\common_base\lock_mutex.cpp" />
+    <ClCompile Include="..\..\src\common_base\lock_semaphore.cpp" />
+    <ClCompile Include="..\..\src\common_base\log.cpp" />
+    <ClCompile Include="..\..\src\common_base\mem_buffer.cpp" />
+    <ClCompile Include="..\..\src\common_base\process_heap.cpp" />
+    <ClCompile Include="..\..\src\common_base\ref_counter.cpp" />
+    <ClCompile Include="..\..\src\common_base\smart_string.cpp" />
+    <ClCompile Include="..\..\src\common_base\string_helper.cpp" />
+    <ClCompile Include="..\..\src\common_base\task_manager.cpp" />
+    <ClCompile Include="..\..\src\common_base\thread.cpp" />
+    <ClCompile Include="..\..\src\common_base\time_stat.cpp" />
+    <ClCompile Include="..\..\src\common_base\windows_helper.cpp" />
+    <ClCompile Include="..\..\src\common_base\x_unzip.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="WinCommonBase.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\common_base\auto_lock.h" />
+    <ClInclude Include="..\..\include\common_base\bitmap_to_icon.h" />
+    <ClInclude Include="..\..\include\common_base\color_converter.h" />
+    <ClInclude Include="..\..\include\common_base\config.h" />
+    <ClInclude Include="..\..\include\common_base\console.h" />
+    <ClInclude Include="..\..\include\common_base\crash_dump.h" />
+    <ClInclude Include="..\..\include\common_base\debug.h" />
+    <ClInclude Include="..\..\include\common_base\delegate.h" />
+    <ClInclude Include="..\..\include\common_base\dll_loader_guard.h" />
+    <ClInclude Include="..\..\include\common_base\file_helper.h" />
+    <ClInclude Include="..\..\include\common_base\file_mapping.h" />
+    <ClInclude Include="..\..\include\common_base\gdiplus_guard.h" />
+    <ClInclude Include="..\..\include\common_base\handle_helper.h" />
+    <ClInclude Include="..\..\include\common_base\identity_master.h" />
+    <ClInclude Include="..\..\include\common_base\lock_base.h" />
+    <ClInclude Include="..\..\include\common_base\lock_critical_section.h" />
+    <ClInclude Include="..\..\include\common_base\lock_event.h" />
+    <ClInclude Include="..\..\include\common_base\lock_mutex.h" />
+    <ClInclude Include="..\..\include\common_base\lock_semaphore .h" />
+    <ClInclude Include="..\..\include\common_base\log.h" />
+    <ClInclude Include="..\..\include\common_base\mailslot_helper.h" />
+    <ClInclude Include="..\..\include\common_base\mem_buffer.h" />
+    <ClInclude Include="..\..\include\common_base\process_heap.h" />
+    <ClInclude Include="..\..\include\common_base\ref_counter.h" />
+    <ClInclude Include="..\..\include\common_base\function_scope_guard.h" />
+    <ClInclude Include="..\..\include\common_base\service_manager.h" />
+    <ClInclude Include="..\..\include\common_base\singleton.h" />
+    <ClInclude Include="..\..\include\common_base\smart_ptr.h" />
+    <ClInclude Include="..\..\include\common_base\smart_string.h" />
+    <ClInclude Include="..\..\include\common_base\smart_tools.h" />
+    <ClInclude Include="..\..\include\common_base\string_helper.h" />
+    <ClInclude Include="..\..\include\common_base\task_manager.h" />
+    <ClInclude Include="..\..\include\common_base\thread.h" />
+    <ClInclude Include="..\..\include\common_base\timer_helper.h" />
+    <ClInclude Include="..\..\include\common_base\time_stat.h" />
+    <ClInclude Include="..\..\include\common_base\types.h" />
+    <ClInclude Include="..\..\include\common_base\utility.h" />
+    <ClInclude Include="..\..\include\common_base\windows_helper.h" />
+    <ClInclude Include="..\..\include\common_base\x_unzip.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="WinCommonBase.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="WinCommonBase.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\WinCommonBase.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
