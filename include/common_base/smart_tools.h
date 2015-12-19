@@ -160,4 +160,44 @@ private:
 };
 
 
+//  设备上下文环境堆栈状态
+//  通过该简易实现维护DC状态
+class CDCStack
+{
+public:
+
+    CDCStack(HDC hdc):
+        m_hdc(hdc),
+        m_saveDCID(::SaveDC( hdc ) )
+    {
+
+    }
+
+    ~CDCStack()
+    {
+        ::RestoreDC( m_hdc, m_saveDCID );
+    }
+
+    inline int GetDCID()
+    {
+        return m_saveDCID;
+    }
+
+    operator int()
+    {
+        return m_saveDCID;
+    }
+
+    operator HDC()
+    {
+        return m_hdc;
+    }
+
+private:
+
+    HDC     m_hdc;          //  设备上下文
+    int     m_saveDCID;     //  保存的DC对应ID
+
+};
+
 #endif  //  _SMART_TOOLS_H_

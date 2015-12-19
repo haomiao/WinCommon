@@ -58,7 +58,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>../../include/common_base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;WIN_COMMON_STATIC_LIBS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;WIN_COMMON_STATIC_LIBS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -82,7 +82,7 @@
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <AdditionalIncludeDirectories>../../include/common_base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;WIN_COMMON_STATIC_LIBS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_USRDLL;WIN_COMMON_STATIC_LIBS;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -100,11 +100,17 @@
     <ClCompile Include="..\..\src\common_base\auto_lock.cpp" />
     <ClCompile Include="..\..\src\common_base\bitmap_to_icon.cpp" />
     <ClCompile Include="..\..\src\common_base\color_converter.cpp" />
+    <ClCompile Include="..\..\src\common_base\communication_gpib.cpp" />
+    <ClCompile Include="..\..\src\common_base\communication_rs232.cpp" />
+    <ClCompile Include="..\..\src\common_base\communication_tcp.cpp" />
+    <ClCompile Include="..\..\src\common_base\communication_udp.cpp" />
     <ClCompile Include="..\..\src\common_base\console.cpp" />
     <ClCompile Include="..\..\src\common_base\crash_dump.cpp" />
     <ClCompile Include="..\..\src\common_base\delegate.cpp" />
     <ClCompile Include="..\..\src\common_base\file_helper.cpp" />
     <ClCompile Include="..\..\src\common_base\file_mapping.cpp" />
+    <ClCompile Include="..\..\src\common_base\ftp_client.cpp" />
+    <ClCompile Include="..\..\src\common_base\hook.cpp" />
     <ClCompile Include="..\..\src\common_base\identity_master.cpp" />
     <ClCompile Include="..\..\src\common_base\lock_critical_section.cpp" />
     <ClCompile Include="..\..\src\common_base\lock_event.cpp" />
@@ -120,6 +126,7 @@
     <ClCompile Include="..\..\src\common_base\thread.cpp" />
     <ClCompile Include="..\..\src\common_base\time_stat.cpp" />
     <ClCompile Include="..\..\src\common_base\windows_helper.cpp" />
+    <ClCompile Include="..\..\src\common_base\windows_ui_base.cpp" />
     <ClCompile Include="..\..\src\common_base\x_unzip.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -133,6 +140,11 @@
     <ClInclude Include="..\..\include\common_base\auto_lock.h" />
     <ClInclude Include="..\..\include\common_base\bitmap_to_icon.h" />
     <ClInclude Include="..\..\include\common_base\color_converter.h" />
+    <ClInclude Include="..\..\include\common_base\communication_base.h" />
+    <ClInclude Include="..\..\include\common_base\communication_gpib.h" />
+    <ClInclude Include="..\..\include\common_base\communication_rs232.h" />
+    <ClInclude Include="..\..\include\common_base\communication_tcp.h" />
+    <ClInclude Include="..\..\include\common_base\communication_udp.h" />
     <ClInclude Include="..\..\include\common_base\config.h" />
     <ClInclude Include="..\..\include\common_base\console.h" />
     <ClInclude Include="..\..\include\common_base\crash_dump.h" />
@@ -141,8 +153,11 @@
     <ClInclude Include="..\..\include\common_base\dll_loader_guard.h" />
     <ClInclude Include="..\..\include\common_base\file_helper.h" />
     <ClInclude Include="..\..\include\common_base\file_mapping.h" />
+    <ClInclude Include="..\..\include\common_base\ftp_client.h" />
+    <ClInclude Include="..\..\include\common_base\ftp_config.h" />
     <ClInclude Include="..\..\include\common_base\gdiplus_guard.h" />
     <ClInclude Include="..\..\include\common_base\handle_helper.h" />
+    <ClInclude Include="..\..\include\common_base\hook.h" />
     <ClInclude Include="..\..\include\common_base\identity_master.h" />
     <ClInclude Include="..\..\include\common_base\lock_base.h" />
     <ClInclude Include="..\..\include\common_base\lock_critical_section.h" />
@@ -168,6 +183,7 @@
     <ClInclude Include="..\..\include\common_base\types.h" />
     <ClInclude Include="..\..\include\common_base\utility.h" />
     <ClInclude Include="..\..\include\common_base\windows_helper.h" />
+    <ClInclude Include="..\..\include\common_base\windows_ui_base.h" />
     <ClInclude Include="..\..\include\common_base\x_unzip.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -182,6 +198,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="..\..\src\common_base\gpib-32.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -47,9 +47,8 @@ bool CThreadControl::operator!=( const CThreadControl& rhs ) const
 
 void CThreadControl::Join( DWORD watiTime )
 {
-    if ( m_threadHandle == 0 )
+    if ( m_threadHandle == NULL )
     {
-        assert(0);
         return;
     }
 
@@ -69,17 +68,14 @@ void CThreadControl::Join( DWORD watiTime )
 
 void CThreadControl::Detach()
 {
-    if ( m_threadHandle == 0 )
+    if ( m_threadHandle == NULL )
     {
         assert(0);
         return;
     }
     
-    if ( CloseHandle( m_threadHandle ) == 0 )
-    {
-        assert(0);
-        return;
-    }
+    CloseHandle( m_threadHandle );
+    m_threadHandle = NULL;
 }
 
 
