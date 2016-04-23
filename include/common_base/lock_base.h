@@ -17,6 +17,7 @@
 #ifndef     _LOCK_BASE_H_
 #define     _LOCK_BASE_H_
 
+
 /**
  * \brief Ëø½Ó¿Ú
  */
