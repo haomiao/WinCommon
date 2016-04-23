@@ -75,18 +75,17 @@ bool CMemBuffer::ReAlloc( size_t size, bool copy_data )
     }
     else if ( m_reserveBufferSize < size )
     {
-        void * pNew = malloc( size );
+        void * pNew = realloc( m_pBuffer, size );
         if ( pNew == NULL )
         {
             return false;
         }
-
-        memset( pNew, 0, size );
-        if ( copy_data == true)
+        
+        if ( copy_data != true)
         {
-            memcpy( pNew, m_pBuffer, m_bufferSize );
+            memset( pNew, 0, size );
         }
-        free( m_pBuffer );
+
         m_pBuffer = pNew;
         m_reserveBufferSize = size;
     }

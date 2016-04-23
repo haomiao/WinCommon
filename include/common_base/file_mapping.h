@@ -60,8 +60,8 @@ public:
     
     /**
     *  @brief  映射当前的"文件"至进程地址空间
-    *  @param  [in] 	dwFileOffsetLow         文件首位置偏移低位大小
-    *  @param  [in] 	dwNumberOfBytesToMap    映射文件字节数大小
+    *  @param  [in] 	dwFileOffsetLow         文件首位置偏移低位大小(注意一定要为分配粒度的整数倍)
+    *  @param  [in] 	dwNumberOfBytesToMap    映射文件字节数大小(除了文件最后剩下的大小,建议每次均映射分配粒度大小的整数倍)
     *  @param  [in] 	dwFileOffsetHigh        文件首位置偏移高位大小
     *  @param  [in] 	dwDesiredAccess         访问权限
     *  return           返回映射后地址空间
